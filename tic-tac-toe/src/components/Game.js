@@ -45,11 +45,11 @@ export default class Game extends Component {
         const moves = history.map((step, move) => {
             const desc = move ? 'Go to #' + move : 'Start the Game';
             return (
-                <li key={move}>
-                    <button onClick={() => { this.jumpTo(move) }}>
+                <p key={move} className="moves-list">
+                    <button className="btn-desc" onClick={() => { this.jumpTo(move) }}>
                         {desc}
                     </button>
-                </li>
+                </p>
             )
         });
         let status;
@@ -67,8 +67,8 @@ export default class Game extends Component {
                         squares={current.squares} />
                 </div>
                 <div className="game-info">
-                    <div>{status}</div>
-                    <ul>{moves}</ul>
+                    <h4 className="status-info">{status}</h4>
+                    <div>{moves}</div>
                 </div>
 
             </div>
